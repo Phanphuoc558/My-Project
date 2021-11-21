@@ -18,4 +18,5 @@ public class FormatDate {
         stringDay = simpleDateFormat.format(date);
         return stringDay;
     }
+    
 }

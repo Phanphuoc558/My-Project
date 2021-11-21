@@ -6,7 +6,7 @@ import java.util.Date;
 public abstract class HangHoa {
     private String name;
     private String seri;
-    private Float inportPrice;
+    private float inportPrice;
     private int inventoryNumber;
     private Date inputDate;
     public String getName() {
@@ -43,5 +43,7 @@ public abstract class HangHoa {
         this.inventoryNumber = inventoryNumber;
         this.inputDate = inputDate;
     }
-    
+    public void print(){
+        System.out.printf("|%18s|%16s|%16.2f|%13d|%11s|\n",this.getName(),this.getSeri(),this.getInportPrice(),this.getInventoryNumber(),FormatDate.dateToString(this.getInputDate()));
+    }
 }
