@@ -65,13 +65,24 @@ public class Management {
         }
     }
     public static void deleteHangHoa(String value){
+        boolean result = false;
         for (HangHoa hangHoa : management) {
-            if(hangHoa.getSeri().equalsIgnoreCase(value)==true){
+            if(hangHoa.getSeri().equalsIgnoreCase(value)){
                 management.remove(hangHoa);
+                result = true;
+                String txt[] = value.split(" ");
+                if(txt[0].equalsIgnoreCase("FD"))
+                    Food.count--;
+                else if(txt[0].equalsIgnoreCase("CR"))
+                    Ceramic.count--;
+                else if(txt[0].equalsIgnoreCase("EC"))
+                    Electric.count--;
                 System.out.println("Done Delete!");
                 break;
             }
         }
+        if(result==false)
+            System.out.println("Không tìm thấy seri để xóa!");
     }
     public static void searchType(){
         Menu.menuHangHoa();
@@ -144,9 +155,9 @@ public class Management {
         System.out.println("|Số hàng hóa loại điện máy: "+Electric.count);
         System.out.println("|Số hàng hóa loại sành sứ: "+Ceramic.count);
         for (HangHoa hangHoa : management) {
-            totalValue = totalValue+ hangHoa.getInportPrice();
+            totalValue = totalValue+ hangHoa.getInportPrice()*hangHoa.getInventoryNumber();
         }
-        System.out.println("|Tổng giá trị nhập kho: "+totalValue);
+        System.out.println("|Tổng giá trị nhập kho: "+(Float)totalValue+" $");
         System.out.println("==============================================");
         System.out.println("Enter để tiếp tục <3");
         x = InputTools.inputString();
@@ -221,6 +232,10 @@ public class Management {
                     listSort.add(hangHoa);
             }
         }else System.out.println("Bạn chọn sai! ");
+        for(int i=0;i<listSort.size();i++){
+            for(int j=i;j<listSort.size();j++){
 
+            }
+        }
     }
 }

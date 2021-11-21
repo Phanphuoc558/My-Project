@@ -4,16 +4,16 @@ import java.text.ParseException;
 
 public class MainProgram {
     public static void main(String[] args) throws ParseException{
-        int chose,choseEdit,choseSearch,choseSort,choseStatistic,choseHang;
+        int chose,choseEdit,choseSearch,choseSort,choseHang;
         String x;
-        Management.addHangHoa(new Food("Rice", "FD0", (float) 18000, 50, FormatDate.stringToDate("30/9/2021")));
-        Management.addHangHoa(new Food("Sweet Bread", "FD1", (float) 10000, 150, FormatDate.stringToDate("10/11/2021")));
-        Management.addHangHoa(new Food("Cream", "FD2", (float) 5000, 100, FormatDate.stringToDate("9/11/2021")));
-        Management.addHangHoa(new Food("Potatoes", "FD3", (float) 7000, 15, FormatDate.stringToDate("17/11/2021")));
-        Management.addHangHoa(new Food("Corn", "FD4", (float) 8000, 20, FormatDate.stringToDate("10/11/2021")));
-        Management.addHangHoa(new Food("Peas", "FD5", (float) 9000, 50, FormatDate.stringToDate("16/11/2021")));
-        Management.addHangHoa(new Food("Oshj Snack", "FD6", (float) 5000, 200, FormatDate.stringToDate("15/11/2021")));
-        Management.addHangHoa(new Food("Rice Cake", "FD7", (float) 3000, 250, FormatDate.stringToDate("17/11/2021")));
+        Management.addHangHoa(new Food("Rice Cake", "FD-0", (float)0.5, 250, FormatDate.stringToDate("17/11/2021")));
+        Management.addHangHoa(new Food("Rice", "FD-1", (float) 1, 50, FormatDate.stringToDate("30/9/2021")));
+        Management.addHangHoa(new Food("Sweet Bread", "FD-2", (float) 0.5, 150, FormatDate.stringToDate("10/11/2021")));
+        Management.addHangHoa(new Food("Cream", "FD-3", (float) 0.25, 100, FormatDate.stringToDate("9/11/2021")));
+        Management.addHangHoa(new Food("Potatoes", "FD-4", (float) 0.3, 15, FormatDate.stringToDate("17/11/2021")));
+        Management.addHangHoa(new Food("Corn", "FD-5", (float) 0.4, 20, FormatDate.stringToDate("10/11/2021")));
+        Management.addHangHoa(new Food("Peas", "FD-6", (float) 0.45, 50, FormatDate.stringToDate("16/11/2021")));
+        Management.addHangHoa(new Food("Oshj Snack", "FD-7", (float) 0.25, 200, FormatDate.stringToDate("15/11/2021")));
         do{
             Menu.menuMain();
             System.out.print("Mời bạn nhập lựa chọn: ");
@@ -65,7 +65,15 @@ public class MainProgram {
                         default: System.out.println("Bạn chọn sai! ");
                     }
                 }while(choseSearch>0 && choseSearch<4);break;
-                case 3:;break;
+                case 3:{
+                    Menu.menuSort();
+                    choseSort = Integer.parseInt(InputTools.inputString());
+                    switch(choseSort){
+                        case 1:Management.sortUpPrice();break;
+                        case 2:Management.sortLatest();break;
+                        default: System.out.println("Bạn chọn sai! ");
+                    }
+                };break;
                 case 4:Management.show();break;
                 case 5:Management.statistic();
             }

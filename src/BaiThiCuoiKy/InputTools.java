@@ -9,10 +9,10 @@ public abstract class InputTools {
     static Scanner in = new Scanner(System.in);
     public static Food inpFood()throws ParseException{
         Food food;
-        String seri = "FD"+Food.count;
+        String seri = "FD-"+(Food.seriNumber++);
         System.out.print("Nhập tên: ");
         String name = inputString();
-        System.out.print("Giá nhập: ");
+        System.out.print("Giá nhập (đơn vị $): ");
         float importPrice = Float.parseFloat(InputTools.inputString());
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());
@@ -21,10 +21,10 @@ public abstract class InputTools {
     }
     public static Ceramic inpCeramic()throws ParseException{
         Ceramic ceramic;
-        String seri = "CR"+Ceramic.count;
+        String seri = "CR-"+(Ceramic.seriNumber++);
         System.out.print("Nhập tên: ");
         String name = inputString();
-        System.out.print("Giá nhập: ");
+        System.out.print("Giá nhập (đơn vị $): ");
         float importPrice = Float.parseFloat(InputTools.inputString());
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());
@@ -33,10 +33,10 @@ public abstract class InputTools {
     }
     public static Electric inpElectric()throws ParseException{
         Electric electric;
-        String seri = "EC"+Electric.count;
+        String seri = "EC-"+(Electric.seriNumber++);
         System.out.print("Nhập tên: ");
         String name = inputString();
-        System.out.print("Giá nhập: ");
+        System.out.print("Giá nhập (đơn vị $): ");
         float importPrice = Float.parseFloat(InputTools.inputString());
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());

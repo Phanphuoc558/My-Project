@@ -1,11 +1,11 @@
 package BaiThiCuoiKy;
 
-import java.text.ParseException;
 import java.util.Date;
 
 public class Food extends HangHoa{
 
     static int count;
+    static int seriNumber;
     public Food(String name, String seri, Float inportPrice, int inventoryNumber, Date inputDate) {
         super(name, seri, inportPrice, inventoryNumber, inputDate);
         count++;
@@ -45,6 +45,13 @@ public class Food extends HangHoa{
     public void setName(String name) {
         super.setName(name);
     }
+    public static int getCount() {
+        return count;
+    }
+    public static void setCount(int count) {
+        Food.count = count;
+    }
+    
 }
     
 

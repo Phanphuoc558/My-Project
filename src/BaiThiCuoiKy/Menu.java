@@ -38,15 +38,6 @@ public abstract class Menu {
         System.out.println("| Một số khác bất kì để thoát |");
         System.out.println("===============================");
     }
-    public static void menuStatistic(){
-        System.out.println("        STATISTIC MENU         ");
-        System.out.println("===============================");
-        System.out.println("| 1.Tổng số lượng hàng hóa    |");
-        System.out.println("| 2.Tổng giá trị nhập kho     |");
-        System.out.println("| 3.Số lượng từng loại hàng   |");
-        System.out.println("| Một số khác bất kì để thoát |");
-        System.out.println("===============================");
-    }
     public static void menuHangHoa(){
         System.out.println("Chọn hàng hóa thao tác");
         System.out.println("1. Thực phẩm");
