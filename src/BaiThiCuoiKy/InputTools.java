@@ -9,7 +9,7 @@ public abstract class InputTools {
     static Scanner in = new Scanner(System.in);
     public static Food inpFood()throws ParseException{
         Food food;
-        String seri = "FD-"+(Food.seriNumber++);
+        String seri = "FD-"+Food.seriNumber;
         System.out.print("Nhập tên: ");
         String name = inputString();
         System.out.print("Giá nhập (đơn vị $): ");
@@ -17,11 +17,12 @@ public abstract class InputTools {
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());
         Date inputDate = inputDate();
+        Creen.clear();
         return food = new Food(name, seri, importPrice, inventoryNumber, inputDate);
     }
     public static Ceramic inpCeramic()throws ParseException{
         Ceramic ceramic;
-        String seri = "CR-"+(Ceramic.seriNumber++);
+        String seri = "CR-"+Ceramic.seriNumber;
         System.out.print("Nhập tên: ");
         String name = inputString();
         System.out.print("Giá nhập (đơn vị $): ");
@@ -29,11 +30,12 @@ public abstract class InputTools {
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());
         Date inputDate = inputDate();
+        Creen.clear();
         return ceramic = new Ceramic(name, seri, importPrice, inventoryNumber, inputDate);
     }
     public static Electric inpElectric()throws ParseException{
         Electric electric;
-        String seri = "EC-"+(Electric.seriNumber++);
+        String seri = "EC-"+Electric.seriNumber;
         System.out.print("Nhập tên: ");
         String name = inputString();
         System.out.print("Giá nhập (đơn vị $): ");
@@ -41,6 +43,7 @@ public abstract class InputTools {
         System.out.print("Số lượng tồn kho: ");
         int inventoryNumber = Integer.parseInt(InputTools.inputString());
         Date inputDate = inputDate();
+        Creen.clear();
         return electric = new Electric(name, seri, importPrice, inventoryNumber, inputDate);
     }
     public static String inputString(){

@@ -9,6 +9,7 @@ public class Ceramic extends HangHoa{
     public Ceramic(String name, String seri, float inportPrice, int inventoryNumber, Date inputDate) {
         super(name, seri, inportPrice, inventoryNumber, inputDate);
         count++;
+        seriNumber++;
     }
 
     public Float getInportPrice() {

@@ -9,6 +9,7 @@ public class Food extends HangHoa{
     public Food(String name, String seri, Float inportPrice, int inventoryNumber, Date inputDate) {
         super(name, seri, inportPrice, inventoryNumber, inputDate);
         count++;
+        seriNumber++;
     }
     public Float getInportPrice() {
         return super.getInportPrice();

@@ -18,16 +18,19 @@ public class MainProgram {
             Menu.menuMain();
             System.out.print("Mời bạn nhập lựa chọn: ");
             chose = Integer.parseInt(InputTools.inputString());
+            Creen.clear();
             switch(chose){
                 case 1: do{
                     Menu.menuEdit();
                     System.out.print("Mời bạn nhập lựa chọn: ");
                     choseEdit = Integer.parseInt(InputTools.inputString());
+                    Creen.clear();
                     switch(choseEdit){
                         case 1:{
                             Menu.menuHangHoa();
                             System.out.print("Mời bạn nhập lựa chọn: ");
                             choseHang = Integer.parseInt(InputTools.inputString());
+                            Creen.clear();
                             if(choseHang==1){
                                 Management.addHangHoa(InputTools.inpFood());
                             }
@@ -40,16 +43,19 @@ public class MainProgram {
                                 System.out.print("Bạn chọn sai!");
                                 System.out.println("Nhấn Enter để tiếp tục <3");
                                 x = InputTools.inputString();
+                                Creen.clear();
                             }
                         };break;
                         case 2:{
                             System.out.print("Nhập vào seri của hàng hóa cần sửa: ");
                             String value = InputTools.inputString();
+                            Creen.clear();
                             Management.editHangHoa(value);
                         };break;
                         case 3:{
                             System.out.print("Nhập vào seri của hàng hóa cần xóa: ");
                             String value = InputTools.inputString();
+                            Creen.clear();
                             Management.deleteHangHoa(value);
                         };break;
                     }
@@ -58,16 +64,17 @@ public class MainProgram {
                     Menu.menuSearch();
                     System.out.print("Mời bạn nhập lựa chọn: ");
                     choseSearch = Integer.parseInt(InputTools.inputString());
+                    Creen.clear();
                     switch(choseSearch){
                         case 1:Management.searchType();break;
                         case 2:Management.searchPrice();break;
-                        case 3:Management.searchDate();break;
-                        default: System.out.println("Bạn chọn sai! ");
+                        case 3:Management.searchDate();
                     }
                 }while(choseSearch>0 && choseSearch<4);break;
                 case 3:{
                     Menu.menuSort();
                     choseSort = Integer.parseInt(InputTools.inputString());
+                    Creen.clear();
                     switch(choseSort){
                         case 1:Management.sortUpPrice();break;
                         case 2:Management.sortLatest();break;

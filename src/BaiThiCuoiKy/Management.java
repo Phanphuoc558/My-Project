@@ -44,6 +44,7 @@ public class Management {
         System.out.println("================================================================================");
         System.out.println("Đã dừng màn hình \nNhấn Enter để tiếp tục <3");
         x = InputTools.inputString();
+        Creen.clear();
     }
     public static void editHangHoa(String value)throws ParseException{
         for (HangHoa hangHoa : management) {
@@ -109,6 +110,7 @@ public class Management {
         System.out.println("================================================================================");
         System.out.println("Đã dừng màn hình \nNhấn Enter để tiếp tục <3");
         x = InputTools.inputString();
+        Creen.clear();
     }
     public static void searchPrice(){
         System.out.println("Mời bạn nhập khoảng giá tìm kiếm!");
@@ -128,6 +130,7 @@ public class Management {
         System.out.println("================================================================================");
         System.out.println("Đã dừng màn hình \nNhấn Enter để tiếp tục <3");
         x = InputTools.inputString();
+        Creen.clear();
     }
     public static void searchDate()throws ParseException{
         System.out.println("Mời bạn nhập khoảng thời gian cần tìm! ");
@@ -147,6 +150,7 @@ public class Management {
         System.out.println("================================================================================");
         System.out.println("Đã dừng màn hình \nNhấn Enter để tiếp tục <3");
         x = InputTools.inputString();
+        Creen.clear();
     }
     public static void statistic(){
         System.out.println("==============================================");
@@ -161,12 +165,14 @@ public class Management {
         System.out.println("==============================================");
         System.out.println("Enter để tiếp tục <3");
         x = InputTools.inputString();
+        Creen.clear();
     }
     public static void sortUpPrice(){
         ArrayList<HangHoa> listSort = new ArrayList<>();
         System.out.println("Đây là sắp xếp tăng dần giá của một loại hàng hóa! <3");
         Menu.menuHangHoa();
         int choseSortType = Integer.parseInt(InputTools.inputString());
+        Creen.clear();
         if(choseSortType==1){
             for (HangHoa hangHoa : management) {
                 if(hangHoa instanceof Food)
@@ -204,10 +210,12 @@ public class Management {
                 System.out.println("================================================================================");
                 System.out.println("Enter để tiếp tục! ");
                 x=InputTools.inputString();
+                Creen.clear();
             }else{
                 System.out.println("Không có loại hàng hóa bạn cần ");
                 System.out.println("Enter để tiếp tục!");
                 x = InputTools.inputString();
+                Creen.clear();
             }
         }
     }
@@ -233,8 +241,46 @@ public class Management {
             }
         }else System.out.println("Bạn chọn sai! ");
         for(int i=0;i<listSort.size();i++){
-            for(int j=i;j<listSort.size();j++){
-
+            for(int j=i+1;j<listSort.size();j++){
+                String date1 = FormatDate.dateToString(listSort.get(i).getInputDate());
+                String d1[] = date1.split("/");
+                int nam1 = Integer.parseInt(d1[2]);
+                int thang1 = Integer.parseInt(d1[1]);
+                int ngay1 = Integer.parseInt(d1[0]);
+                String date2 = FormatDate.dateToString(listSort.get(j).getInputDate());
+                String d2[] = date2.split("/");
+                int nam2 = Integer.parseInt(d2[2]);
+                int thang2 = Integer.parseInt(d2[1]);
+                int ngay2 = Integer.parseInt(d2[0]);
+                boolean ketQua = false;
+                if(nam2>nam1 || nam2==nam1 && thang2>thang1|| nam2==nam1 && thang2==thang1 && ngay2>ngay1)
+                    ketQua = true;
+                else ketQua = false;
+                if(ketQua==true){
+                    HangHoa temp = listSort.get(i);
+                    listSort.set(i, listSort.get(j));
+                    listSort.set(j, temp);
+                }    
+            }
+        }
+        if(choseSortDate>0 && choseSortDate <4){
+            if(listSort.size()!=0){
+                System.out.println("Kết quả của bạn: ");
+                System.out.println("================================================================================");
+                System.out.println("|     Tên hàng     |    Mã hàng     |    Giá nhập    |   Tồn kho   | Ngày nhập |");
+                System.out.println("===================|================|================|=============|===========|");
+                for (HangHoa hangHoa : listSort) {
+                    hangHoa.print();
+                }
+                System.out.println("================================================================================");
+                System.out.println("Enter để tiếp tục! ");
+                x=InputTools.inputString();
+                Creen.clear();
+            }else{
+                System.out.println("Không có loại hàng hóa bạn cần ");
+                System.out.println("Enter để tiếp tục!");
+                x = InputTools.inputString();
+                Creen.clear();
             }
         }
     }
